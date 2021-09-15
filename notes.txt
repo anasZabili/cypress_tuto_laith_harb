@@ -1,0 +1,3 @@
+Install Cypress:
+  npm install Cypress
+  
