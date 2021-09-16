@@ -42,6 +42,38 @@ Select element :
   Get element by data test id:
 	cy.get("[data-cy='btn-id-1']")
 
+  Create commands:
+    Commands are an easy way to create reusable function cypress function to performe
+    action like selecting particular element
+  
+    Create getByTestId command:
+      Inside commands.js add : 
+        Cypress.Commands.add("getByTestId", (testId) => {
+            cy.get(`[data-cy='${testId}']`);
+        });
+	  This way this command can by use anywhere in our project
+
+  Contains:
+    contains get a DOM element that contains a specific text
+
+    Get element by text:
+      cy.contains("Unique Text");
+
+    Get element with a not unique text => select the first element in the dom
+    that contains this text:
+      cy.contains("Not Unique Text");
+
+    With selector:
+      cy.contains("[type='submit']", "Not Unique Text");
+      cy.contains("form", "Not Unique Text");
+
+    Combine get and contains:
+      cy.get("[type='submit']").contains("Not Unique Text");
+
+  Find:
+    find gonna find a chilld node element (rarely use)
+    cy.get("#form-1").find(".btn-1");
+
 
 
 
