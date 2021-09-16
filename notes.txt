@@ -75,6 +75,12 @@ Select element :
     cy.get("#form-1").find(".btn-1");
 
 
+  Interact with elements:
+    Click:
+      cy.contains("button", "Add").click();
+
+
+
 
 
     
