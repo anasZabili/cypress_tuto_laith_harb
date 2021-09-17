@@ -80,6 +80,15 @@ Select element :
       cy.contains("button", "Add").click();
 
 
+  Asynchronous pages: 
+    cypress by default work asynchronously, so there is nothing special to do
+    while working with Asynchronous pages, cypress simply gonna wait for the pages
+
+  Negation in assertion:
+    all the assertion, have his negation, this can be done by the not. prefixe
+      should("be.visible") = negation > should("not.be.visible")
+
+
 
 
 
