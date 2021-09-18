@@ -13,7 +13,7 @@ describe("Reward dashboard", () => {
   });
 
   it("should display a list of rewards with a mock", () => {
-    cy.intercept("GET", "http://localhost:4000/rewards", {
+    cy.intercept("GET", "", {
       // here we specify that the data that will be return by the mocked
       // request can be found in fixture folder, in reward.json file
       fixture: "reward.json",
