@@ -42,6 +42,15 @@ Select element :
   Get element by data test id:
 	cy.get("[data-cy='btn-id-1']")
 
+  Get contain:
+      it("should display a list of rewards", () => {
+      cy.get("ul").should(
+          "contain",
+          "500 points for drinking 8 cups of water for 7 straight days"
+        );
+      });
+
+
   Create commands:
     Commands are an easy way to create reusable function cypress function to performe
     action like selecting particular element
@@ -87,6 +96,32 @@ Select element :
   Negation in assertion:
     all the assertion, have his negation, this can be done by the not. prefixe
       should("be.visible") = negation > should("not.be.visible")
+
+
+  Mock HTTP request:
+    To mock an http request:
+       it("should display a list of rewards with a mock", () => {
+          cy.intercept("GET", "http://localhost:4000/rewards", {
+            // here we specify that the data that will be return by the mocked
+            // request can be found in fixture folder, in reward.json file
+            fixture: "reward.json",
+          });
+          cy.contains(
+            "ul",
+            "500 points for drinking 8 cups of water for 7 straight days"
+          ).should("be.visible");
+        });
+
+      and in the reward.json file inside the fixture folder copy the json data 
+      that we want in response: 
+        [
+          {
+            "id": 1,
+            "reward": "500 points for drinking 8 cups of water for 7 straight days",
+            "month": "January"
+          },
+        ]
+
 
 
 
